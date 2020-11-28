@@ -1,0 +1,17 @@
+.body {
+  cursor: pointer;
+}
+
+body {
+  background-color: orange;
+  margin-top: 20px;
+}
+
+img {
+  width: 300px;
+  height: auto;
+}
+
+.input-group {
+  margin: 20px;
+}
