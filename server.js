@@ -4,7 +4,7 @@ var bodyParser = require("body-parser");
 var burgerController = require("./controllers/burgers_controller.js");
 var burger = require("./models/burger.js");
 
-var PORT = process.env.PORT || 3306;
+var PORT = process.env.PORT || 4000;
 
 var app = express();
 
@@ -20,14 +20,15 @@ app.set("view engine", "handlebars");
 
 app.get("/", function(req, res) {
     burger.selectAll(function(data) {
-      var burgerData = {
+      var hbsObject = {
         burgers: data
       };
-      console.log(burgerData);
-      res.render("index", burgerData);
+      console.log(hbsObject);
+      res.render("index", hbsObject);
     });
   });
 
 app.use("/api/burgers", burgerController);
 
 app.listen(PORT);
+console.log (`Listening on ${PORT}`)

@@ -1,20 +1,18 @@
-
-$( document ).ready(function(){
 $(function(){
 	$(".devour").on("click", function(event){
 		var id = $(this).data("id");
-		var newDevour = $(this).data("newdevour");
+		var eatBurger = $(this).data("newdevour");
 
-		var updateDevour = {
-			devoured: newDevour
-        };
-        
+		var devouredBurger = {
+			devoured: eatBurger
+		};
+
 	    $.ajax("/api/burgers/" + id, {
 	    	type: "PUT",
-	    	data: updateDevour
+	    	data: devouredBurger
 	    }).then(
 	    function() {
-	    	console.log("testing devour feature", newDevour);
+	    	console.log("changed devoured to", eatBurger);
 	        location.reload();
 	    }
     	);
@@ -45,10 +43,9 @@ $(function(){
 	    	type: "DELETE",
 	    }).then(
 	    function() {
-	    	console.log("burger deleted", id);
+	    	console.log("deleted burger", id);
 	        location.reload();
 	    }
 	    );
 	});
-});
 });

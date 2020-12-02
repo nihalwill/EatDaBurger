@@ -1,4 +1,3 @@
-  
 var mysql = require("mysql");
 
 if (process.env.JAWSDB_URL) {
